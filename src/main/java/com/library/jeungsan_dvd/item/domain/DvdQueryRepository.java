@@ -11,8 +11,7 @@ import java.util.List;
 @Repository
 public class DvdQueryRepository {
 
-    @Autowired
-    EntityManager em;
+    private final EntityManager em;
 
     public List<DVD> findMostPopular() {
         List<DVD> dvdList = em.createQuery("select d from DVD d order by d.viewCnt desc", DVD.class)

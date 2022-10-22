@@ -6,6 +6,7 @@ import com.library.jeungsan_dvd.item.domain.DvdRepository;
 import com.library.jeungsan_dvd.item.web.DvdResponseDTO;
 import com.library.jeungsan_dvd.item.web.PopularDvdResponseDTO;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,7 +32,7 @@ public class DvdService {
 
     /** DVD LiSt 전체 */
     public List<DvdResponseDTO> dvdList() {
-        return dvdRepository.findAllOrderByTitle().stream()
+        return dvdRepository.findAll(Sort.by(Sort.Direction.ASC, "title")).stream()
                 .map(dvd -> DvdResponseDTO.builder()
                         .registNumber(dvd.getRegistNumber())
                         .title(dvd.getTitle())

@@ -11,7 +11,7 @@
 <header class="masthead bg-primary text-white text-center">
     <div class="container d-flex align-items-center flex-column">
         <!-- Masthead Avatar Image-->
-        <img class="mb-4 col-3" src="/assets/img/signup_image2.png" alt="..."/>
+        <img class="mb-4 col-3" src="/assets/img/library.png" alt="..."/>
 
         <div class="container">
             <div class="pb-2 text-center">
@@ -21,7 +21,7 @@
             <form action="" th:action th:object="${user}" method="post" class="col-7 mx-auto">
 
                 <div th:if="${#fields.hasGlobalErrors()}">
-                    <p class="field-error label-text" th:each="err : ${#fields.globalErrors()}"
+                    <p class="field-error field-errorText" th:each="err : ${#fields.globalErrors()}"
                        th:text="${err}">전체 오류 메시지</p>
                 </div>
 

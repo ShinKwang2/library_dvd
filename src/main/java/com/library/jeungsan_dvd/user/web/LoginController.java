@@ -20,6 +20,10 @@ public class LoginController {
 
     private final LoginService loginService;
 
+    @GetMapping("/login/test")
+    public String test(@ModelAttribute("loginDTO") LoginDTO loginDTO) {
+        return "login/loginFormTest";
+    }
     @GetMapping("/login")
     public String loginForm(@ModelAttribute("loginDTO") LoginDTO loginDTO) {
         return "login/loginForm";

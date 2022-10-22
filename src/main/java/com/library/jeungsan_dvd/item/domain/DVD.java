@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+import static javax.persistence.FetchType.*;
+
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
@@ -17,9 +19,7 @@ public class DVD {
     @Column(name = "dvd_id")
     private Long id;
 
-    /** DVD 등록 번호
-     *  증산도서관에서 찾는 번호
-     */
+    /** DVD 등록 번호 - 증산도서관에서 찾는 번호 */
     @Column(name = "regist_number", nullable = false)
     private String registNumber;
 
@@ -47,8 +47,12 @@ public class DVD {
     @Column(name = "view_cnt")
     private long viewCnt; //뷰 카운트
 
+    @OneToOne(fetch = LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "file_id")
+    private FileEntity file;
+
     @Builder
-    public DVD(String registNumber, String title, DvdType dvdType, Genre genre, String director, Integer runningTime, String summary) {
+    public DVD(String registNumber, String title, DvdType dvdType, Genre genre, String director, Integer runningTime, String summary, FileEntity file) {
         this.registNumber = registNumber;
         this.title = title;
         this.dvdType = dvdType;
@@ -56,6 +60,7 @@ public class DVD {
         this.director = director;
         this.runningTime = runningTime;
         this.summary = summary;
+        this.file =  file;
         this.createTime = LocalDateTime.now();
         this.lastModifiedTime = LocalDateTime.now();
         this.viewCnt = 0;

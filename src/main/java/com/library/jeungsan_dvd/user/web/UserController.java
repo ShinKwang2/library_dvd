@@ -18,6 +18,7 @@ public class UserController {
 
     private final UserService userService;
 
+
     @GetMapping("/user/signup")
     public String signUpForm(@ModelAttribute("user") UserSignupDTO userSignupDTO) {
         return "user/signup";

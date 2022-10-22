@@ -1,50 +1,51 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
+    <head th:replace="fragments/header :: header">
+<!--        <meta charset="utf-8" />-->
+<!--        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />-->
+<!--        <meta name="description" content="" />-->
+<!--        <meta name="author" content="" />-->
+<!--      -->
+<!--        &lt;!&ndash; Favicon&ndash;&gt;-->
+<!--        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />-->
+<!--        &lt;!&ndash; Font Awesome icons (free version)&ndash;&gt;-->
+<!--        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>-->
+<!--        &lt;!&ndash; Google fonts&ndash;&gt;-->
+<!--        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />-->
+<!--        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />-->
+<!--        &lt;!&ndash; Core theme CSS (includes Bootstrap)&ndash;&gt;-->
+<!--        <link href="css/styles.css" rel="stylesheet" />-->
+
+<!--        &lt;!&ndash; Axios &ndash;&gt;-->
+<!--        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>-->
+<!--        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>-->
         <title>증산 DVD 검색</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-
-        <!-- Axios -->
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
     </head>
     <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand" href="#page-top">증산 정보도서관 DVD</a>
-                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <li th:if="${username != null}" class="nav-item mx-0 mx-lg-1 py-3 px-0 px-lg-3 rounded text-white" th:text="|${username}님 반갑습니다.|"></li>
-                        <li th:if="${username == null}" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio" th:href="@{/login}">Login</a></li>
-                        <li th:if="${username != null}" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about" th:href="@{/}">MyFavorite</a></li>
-                        <li th:if="${username == null}" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about" th:href="@{/user/signup}">Sign up</a></li>
-                        <li th:if="${username != null}"class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact" th:href="@{/logout}">Logout</a></li>
+        <div th:replace="fragments/bodyHeader :: bodyHeader" />
+<!--        &lt;!&ndash; Navigation&ndash;&gt;-->
+<!--        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">-->
+<!--            <div class="container">-->
+<!--                <a class="navbar-brand" href="#page-top">증산 정보도서관 DVD</a>-->
+<!--                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--                    Menu-->
+<!--                    <i class="fas fa-bars"></i>-->
+<!--                </button>-->
+<!--                <div class="collapse navbar-collapse" id="navbarResponsive">-->
+<!--                    <ul class="navbar-nav ms-auto">-->
+<!--                        <li th:if="${username != null}" class="nav-item mx-0 mx-lg-1 py-3 px-0 px-lg-3 rounded text-white" th:text="|${username}님 반갑습니다.|"></li>-->
+<!--                        <li th:if="${username == null}" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio" th:href="@{/login}">Login</a></li>-->
+<!--                        <li th:if="${username != null}" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about" th:href="@{/}">MyFavorite</a></li>-->
+<!--                        <li th:if="${username == null}" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about" th:href="@{/user/signup}">Sign up</a></li>-->
+<!--                        <li th:if="${username != null}"class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact" th:href="@{/logout}">Logout</a></li>-->
 
-                        <li th:if="${userRole == 'ADMIN'}" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#" th:href="@{/dvd/add}">DVD 등록</a></li>
+<!--                        <li th:if="${userRole == 'ADMIN'}" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#" th:href="@{/dvd/add}">DVD 등록</a></li>-->
 
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+<!--                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </nav>-->
         <!-- Masthead-->
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
@@ -235,43 +236,44 @@
                 </div>
             </div>
         </section>
-        <!-- Footer-->
-        <footer class="footer text-center">
-            <div class="container">
-                <div class="row">
-                    <!-- Footer Location-->
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Location</h4>
-                        <p class="lead mb-0">
-                            6, Jeungsan-ro 5-gil, Eunpyeong-gu
-                            <br />
-                            Seoul, Republic of Korea
-                        </p>
-                    </div>
-                    <!-- Footer Social Icons-->
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Around the Web</h4>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
-                    </div>
-                    <!-- Footer About Text-->
-                    <div class="col-lg-4">
-                        <h4 class="text-uppercase mb-4">About Freelancer</h4>
-                        <p class="lead mb-0">
-                            Freelance is a free to use, MIT licensed Bootstrap theme created by
-                            <a href="http://startbootstrap.com">Start Bootstrap</a>
-                            .
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- Copyright Section-->
-        <div class="copyright py-4 text-center text-white">
-            <div class="container"><small>Copyright &copy; Jeunsan Library DVD 2022.v0</small></div>
-        </div>
+        <footer th:replace="fragments/footer :: footer" />
+<!--        &lt;!&ndash; Footer&ndash;&gt;-->
+<!--        <footer class="footer text-center">-->
+<!--            <div class="container">-->
+<!--                <div class="row">-->
+<!--                    &lt;!&ndash; Footer Location&ndash;&gt;-->
+<!--                    <div class="col-lg-4 mb-5 mb-lg-0">-->
+<!--                        <h4 class="text-uppercase mb-4">Location</h4>-->
+<!--                        <p class="lead mb-0">-->
+<!--                            6, Jeungsan-ro 5-gil, Eunpyeong-gu-->
+<!--                            <br />-->
+<!--                            Seoul, Republic of Korea-->
+<!--                        </p>-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash; Footer Social Icons&ndash;&gt;-->
+<!--                    <div class="col-lg-4 mb-5 mb-lg-0">-->
+<!--                        <h4 class="text-uppercase mb-4">Around the Web</h4>-->
+<!--                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>-->
+<!--                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>-->
+<!--                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>-->
+<!--                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash; Footer About Text&ndash;&gt;-->
+<!--                    <div class="col-lg-4">-->
+<!--                        <h4 class="text-uppercase mb-4">About Freelancer</h4>-->
+<!--                        <p class="lead mb-0">-->
+<!--                            Freelance is a free to use, MIT licensed Bootstrap theme created by-->
+<!--                            <a href="http://startbootstrap.com">Start Bootstrap</a>-->
+<!--                            .-->
+<!--                        </p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </footer>-->
+<!--        &lt;!&ndash; Copyright Section&ndash;&gt;-->
+<!--        <div class="copyright py-4 text-center text-white">-->
+<!--            <div class="container"><small>Copyright &copy; Jeunsan Library DVD 2022.v0</small></div>-->
+<!--        </div>-->
         <!-- Portfolio Modals-->
         <!-- Portfolio Modal 1-->
         <div id="modal-set" th:each="dvd, index : ${popularDvdList}">

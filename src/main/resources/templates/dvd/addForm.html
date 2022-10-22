@@ -2,9 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>DVD 등록</title>
 </head>
 <body>
+    <h1>DVD 등록</h1>
+    <hr>
+
+    <form method="post" action="" enctype="multipart/form-data">
+
+        <label for="title">DVD 제목</label>
+        <input type="text" id="title" name="title" placeholder="DVD 제목을 입력하세요.">
+
+        <label for="registNumber">DVD 등록번호</label>
+        <input type="text" id="registNumber" name="registNumber" placeholder="DVD 등록번호를 입력하세요.">
+
+        <label for="director">영화 감독</label>
+        <input type="text" id="director" name="director" placeholder="영화 감독을 입력하세요.">
+
+        <label for="runningTime">러닝 타임</label>
+        <input type="number" id="runningTime" name="runningTime" placeholder="러닝 타임를 입력하세요.">
+
+        <label for="summary">소개</label>
+        <input type="text" id="summary" name="summary" placeholder="내용을 적어주세요.">
+
+        <label for="file">이미지 파일 등록</label>
+        <input type="file" id="file" name="file">
+
+        <input type="submit">
+    </form>
 
 </body>
 </html>
