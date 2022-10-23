@@ -44,16 +44,25 @@ public class HomeController {
 
         Long loginUserId = (Long) session.getAttribute(SessionConst.LOGIN_USER);
 
-        //세션에 loginMember 가 없으면 home 으로
+        //세션에 loginUserId 가 없으면, home 으로
         if (loginUserId == null) {
+            log.info("noUserId");
+            return "index";
+        }
+
+        //만약 유저가 null 이라면, home 으로
+        User loginUser = userService.findOne(loginUserId);
+        if (loginUser == null) {
             log.info("noUser");
             return "index";
         }
 
         //만약 loginMember 가 있다면, username만 loginHome View로 넘겨주기
-        User loginUser = userService.findOne(loginUserId);
         model.addAttribute("username", loginUser.getUserName());
-        model.addAttribute("userRole", loginUser.getUserName());
+        model.addAttribute("userRole", loginUser.getUserRole());
+
+        Object username = model.getAttribute("username");
+        Object userRole = model.getAttribute("userRole");
 
         return "index";
     }

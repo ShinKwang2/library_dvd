@@ -14,9 +14,9 @@
         <li th:if="${username == null}" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio" th:href="@{/login}">Login</a></li>
         <li th:if="${username != null}" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about" th:href="@{/}">MyFavorite</a></li>
         <li th:if="${username == null}" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about" th:href="@{/user/signup}">Sign up</a></li>
-        <li th:if="${username != null}"class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact" th:href="@{/logout}">Logout</a></li>
+        <li th:if="${username != null}" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact" th:href="@{/logout}">Logout</a></li>
 
-        <li th:if="${userRole == 'ADMIN'}" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#" th:href="@{/dvd/add}">DVD 등록</a></li>
+        <li th:if="${userRole}" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#" th:href="@{/dvd/add}">DVD 등록</a></li>
 
         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact" th:href="@{/#contact}">Contact</a></li>
       </ul>
